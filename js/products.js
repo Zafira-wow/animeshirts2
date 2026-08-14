@@ -1,0 +1,16 @@
+const PRODUCTS = [
+  { id: "iron-pulse", name: "Iron Pulse Tee", category: "gym", priceCents: 2900, image: "images/gym/gym1.jpg", description: "A hard-working graphic tee with a relaxed athletic fit and a bold pulse print.", sizes: ["S", "M", "L", "XL", "XXL"], featured: true },
+  { id: "training-mode", name: "Training Mode Tee", category: "gym", priceCents: 3200, image: "images/gym/gym-shirt2.jpg", description: "Soft heavyweight cotton for the days you show up and do the work.", sizes: ["S", "M", "L", "XL", "XXL"], featured: false },
+  { id: "rep-club", name: "Rep Club Tee", category: "gym", priceCents: 2900, image: "images/gym/gym4.png", description: "A clean graphic built for sessions, rest days and the coffee run after.", sizes: ["XS", "S", "M", "L", "XL"], featured: false },
+  { id: "after-hours", name: "After Hours Tee", category: "anime", priceCents: 3400, image: "images/anime/a1.jpg", description: "A full-colour anime-inspired print for your most committed viewing schedule.", sizes: ["XS", "S", "M", "L", "XL", "XXL"], featured: true },
+  { id: "frame-by-frame", name: "Frame By Frame Tee", category: "anime", priceCents: 3400, image: "images/anime/a2.png", description: "Crisp character art on a comfortable, everyday silhouette.", sizes: ["S", "M", "L", "XL", "XXL"], featured: false },
+  { id: "neon-arc", name: "Neon Arc Tee", category: "anime", priceCents: 3600, image: "images/anime/a4.png", description: "A bright graphic statement with a soft feel and relaxed drape.", sizes: ["XS", "S", "M", "L", "XL"], featured: false },
+  { id: "off-duty", name: "Off Duty Tee", category: "fashionable", priceCents: 3100, image: "images/fashionable/fasion1.jpg", description: "The graphic basic with an elevated fit that works all week long.", sizes: ["XS", "S", "M", "L", "XL", "XXL"], featured: true },
+  { id: "good-form", name: "Good Form Tee", category: "fashionable", priceCents: 3300, image: "images/fashionable/f4.jpeg", description: "A contemporary printed tee, tuned for easy layering and repeat wear.", sizes: ["S", "M", "L", "XL"], featured: false },
+  { id: "daily-signal", name: "Daily Signal Tee", category: "fashionable", priceCents: 3100, image: "images/fashionable/f5.png", description: "A polished streetwear staple with a graphic that carries the look.", sizes: ["XS", "S", "M", "L", "XL"], featured: false },
+  { id: "own-words", name: "Own Words Tee", category: "custom", priceCents: 3800, image: "images/custom/c1.png", description: "Start with a premium blank and make it unmistakably your own.", sizes: ["XS", "S", "M", "L", "XL", "XXL"], featured: true },
+  { id: "personal-edition", name: "Personal Edition Tee", category: "custom", priceCents: 3800, image: "images/custom/c2.png", description: "Custom-ready cotton with the room to turn an idea into a staple.", sizes: ["S", "M", "L", "XL", "XXL"], featured: false },
+  { id: "your-mark", name: "Your Mark Tee", category: "custom", priceCents: 4000, image: "images/custom/c4.png", description: "A made-for-you graphic tee for names, marks, jokes and big ideas.", sizes: ["XS", "S", "M", "L", "XL"], featured: false }
+];
+
+const CATEGORY_LABELS = { all: "All", gym: "Gym Shirts", anime: "Anime Shirts", fashionable: "Fashionable", custom: "Custom Shirts" };

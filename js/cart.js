@@ -1,0 +1,14 @@
+const Cart = (() => {
+  const storageKey = "threadform-cart-v1";
+  const maxQuantity = 99;
+  let recoveryMessage = "";
+  const validQuantity = (value) => Number.isInteger(Number(value)) && Number(value) >= 1 && Number(value) <= maxQuantity ? Number(value) : null;
+  function validate(item) { const product = item && PRODUCTS.find((entry) => entry.id === item.productId); const quantity = validQuantity(item && item.quantity); return product && typeof item.size === "string" && product.sizes.includes(item.size) && quantity ? { productId: product.id, size: item.size, quantity } : null; }
+  function write(items) { localStorage.setItem(storageKey, JSON.stringify(items)); }
+  function read() { try { const raw = localStorage.getItem(storageKey); if (!raw) return []; const parsed = JSON.parse(raw); if (!Array.isArray(parsed)) throw new Error("Invalid cart"); const validItems = parsed.map(validate).filter(Boolean); const merged = []; validItems.forEach((item) => { const existing = merged.find((entry) => entry.productId === item.productId && entry.size === item.size); if (existing) existing.quantity = Math.min(maxQuantity, existing.quantity + item.quantity); else merged.push(item); }); if (validItems.length !== parsed.length) recoveryMessage = "Some unavailable or invalid cart items were removed."; if (JSON.stringify(parsed) !== JSON.stringify(merged)) write(merged); return merged; } catch { recoveryMessage = "Your saved cart data was invalid and has been reset."; localStorage.removeItem(storageKey); return []; } }
+  function save(items) { write(items); window.dispatchEvent(new Event("threadform-cart-change")); }
+  function add(productId, size, quantity) { const item = validate({ productId, size, quantity }); if (!item) return false; const cart = read(); const existing = cart.find((entry) => entry.productId === item.productId && entry.size === item.size); if (existing) existing.quantity = Math.min(maxQuantity, existing.quantity + item.quantity); else cart.push(item); save(cart); return true; }
+  function update(productId, size, quantity) { const safeQuantity = validQuantity(quantity); const cart = read(); const item = cart.find((entry) => entry.productId === productId && entry.size === size); if (!safeQuantity || !item) return false; item.quantity = safeQuantity; save(cart); return true; }
+  function details() { return read().map((item) => ({ ...item, product: PRODUCTS.find((entry) => entry.id === item.productId) })).filter((item) => item.product); }
+  return { add, update, remove: (id, size) => save(read().filter((item) => item.productId !== id || item.size !== size)), clear: () => save([]), getCart: read, getRecoveryMessage: () => recoveryMessage, getCount: () => read().reduce((total, item) => total + item.quantity, 0), getDetailedItems: details, getSubtotalCents: () => details().reduce((total, item) => total + item.product.priceCents * item.quantity, 0), maxQuantity };
+})();

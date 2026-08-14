@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ZeroRules makes expressive, dependable cotton T-shirts for every version of your day." />
+    <title>ZeroRules | Wear What Moves You</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/products.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="ZeroRules home"><img class="brand-logo" src="images/zerorules-mark.svg" alt="" />ZERO<span>RULES</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <a class="active" href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="products.html?category=gym">Gym</a>
+        <a href="products.html?category=anime">Anime</a>
+        <a href="products.html?category=fashionable">Fashion</a>
+        <a href="products.html?category=custom">Custom</a>
+        <a href="info.html">Info</a>
+      </nav>
+      <a class="cart-link" href="cart.html" aria-label="Shopping bag">
+        Bag <span data-cart-count>0</span>
+      </a>
+    </header>
+
+    <main id="main-content">
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Everyday expression, properly made</p>
+          <h1>Wear what<br />moves you.</h1>
+          <p class="hero-text">Graphic tees made for training days, late-night rewatches, sharp fits and one-of-one ideas.</p>
+          <div class="button-row">
+            <a class="button button-dark" href="products.html">Shop all tees</a>
+            <a class="text-link" href="#collections">Find your lane <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="hero-image reveal">
+          <img src="images/gym/gym1.jpg" alt="Black graphic gym T-shirt" />
+          <p class="image-caption">01 / Built for repeat wear</p>
+        </div>
+        <div class="hero-sticker" aria-hidden="true">GOOD<br />TEES<br />ONLY</div>
+      </section>
+
+      <section class="marquee" aria-label="Brand values">
+        <span>Premium cotton</span><span aria-hidden="true">✦</span><span>Small-batch graphics</span><span aria-hidden="true">✦</span><span>Made to be lived in</span><span aria-hidden="true">✦</span><span>Premium cotton</span>
+      </section>
+
+      <section class="section" id="featured">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">The short list</p>
+            <h2>Fresh off the press.</h2>
+          </div>
+          <a class="text-link" href="products.html">View all products <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="product-grid" data-featured-products></div>
+      </section>
+
+      <section class="collections section" id="collections">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Shop by mood</p>
+            <h2>Four ways to show up.</h2>
+          </div>
+        </div>
+        <div class="collection-grid">
+          <a class="collection-card collection-gym" href="products.html?category=gym"><img src="images/gym/gym-shirt2.jpg" alt="Gym Shirts collection" /><span>Gym Shirts <b>→</b></span></a>
+          <a class="collection-card collection-anime" href="products.html?category=anime"><img src="images/anime/a1.jpg" alt="Anime Shirts collection" /><span>Anime Shirts <b>→</b></span></a>
+          <a class="collection-card collection-fashion" href="products.html?category=fashionable"><img src="images/fashionable/fasion1.jpg" alt="Fashionable collection" /><span>Fashionable <b>→</b></span></a>
+          <a class="collection-card collection-custom" href="products.html?category=custom"><img src="images/custom/c1.png" alt="Custom Shirts collection" /><span>Custom Shirts <b>→</b></span></a>
+        </div>
+      </section>
+
+      <section class="story-section">
+        <div class="story-figure"><img src="images/fashionable/f4.jpeg" alt="Fashionable graphic T-shirt" /></div>
+        <div class="story-copy">
+          <p class="eyebrow">Not just another basic</p>
+          <h2>A T-shirt can say plenty before you do.</h2>
+          <p>ZeroRules is for people who make a uniform out of their obsessions. We begin with substantial cotton and finish it with graphics worth a second look.</p>
+          <a class="button button-light" href="products.html?category=custom">Make it yours</a>
+        </div>
+      </section>
+
+      <section class="newsletter section">
+        <p class="eyebrow">Keep in the loop</p>
+        <h2>New drops, no noise.</h2>
+        <form class="signup-form" data-signup-form>
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="Email address" required />
+          <button class="button button-dark" type="submit">Join the list</button>
+        </form>
+        <p class="form-message" data-form-message aria-live="polite"></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="index.html"><img class="brand-logo" src="images/zerorules-mark.svg" alt="" />ZERO<span>RULES</span></a>
+      <p>Made for the rotation.</p>
+      <div><a href="products.html">Shop</a><a href="products.html?category=custom">Custom</a><a href="info.html">Info</a><a href="mailto:owner@zerorules.in">Contact</a></div>
+      <small>© 2026 ZeroRules. Demo storefront.</small>
+    </footer>
+  </body>
+</html>
