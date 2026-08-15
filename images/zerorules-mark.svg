@@ -1,5 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title>ZeroRules emblem</title>
-  <path fill="#171715" d="M8 9h48v10L28 45h29v10H7V45l28-26H8z"/>
-  <path fill="#e54f32" d="M46 9h10v10H46z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100" role="img" aria-labelledby="title desc">
+  <title id="title">0 Rules</title>
+  <desc id="desc">A black zero crossed by a green line with a green R inside it, followed by green Rules lettering.</desc>
+  <g fill="#1fbd68">
+    <circle cx="12" cy="18" r="4"/>
+    <circle cx="28" cy="9" r="2.5"/>
+    <path d="M94 16l6-9 3 12z"/>
+    <circle cx="110" cy="25" r="3"/>
+  </g>
+  <text x="4" y="78" fill="#111512" font-family="Arial, Helvetica, sans-serif" font-size="84" font-weight="900">0</text>
+  <text x="38" y="75" fill="#1fbd68" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="900">R</text>
+  <path d="M8 72L88 24" fill="none" stroke="#1fbd68" stroke-linecap="round" stroke-width="7"/>
+  <text x="112" y="74" fill="#1fbd68" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" letter-spacing="-2">Rules</text>
+  <g fill="#1fbd68">
+    <circle cx="391" cy="24" r="3"/>
+    <circle cx="405" cy="15" r="2"/>
+    <path d="M398 38l9-3-4 9z"/>
+  </g>
 </svg>
