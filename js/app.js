@@ -3,6 +3,36 @@
   const getCategoryLabel = (category) => CATEGORY_LABELS[category] || "Collection";
   const formatPrice = (cents) => currency.format(cents / 100);
 
+  function imageControls(container, image, product) {
+    const controls = document.createElement("div");
+    controls.className = "image-controls";
+    const views = Array.isArray(product.views) && product.views.length ? product.views : [product.image];
+    let activeView = Math.max(0, views.indexOf(product.image));
+    let turnedAround = false;
+    [["←", -1, "left"], ["→", 1, "right"]].forEach(([symbol, direction, side]) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `image-turn image-turn-${side}`;
+      button.textContent = symbol;
+      button.setAttribute("aria-label", views.length > 1 ? `Show ${side === "left" ? "previous" : "next"} view of ${product.name}` : `Turn ${product.name} ${side}`);
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (views.length > 1) {
+          activeView = (activeView + direction + views.length) % views.length;
+          image.src = views[activeView];
+          image.style.transform = "";
+        } else {
+          turnedAround = !turnedAround;
+          image.style.transform = turnedAround ? "rotateY(180deg)" : "";
+        }
+      });
+      controls.append(button);
+    });
+    container.append(controls);
+    return controls;
+  }
+
   function updateCartCount() {
     document.querySelectorAll("[data-cart-count]").forEach((element) => { element.textContent = String(Cart.getCount()); });
   }
@@ -10,6 +40,8 @@
   function productCard(product) {
     const article = document.createElement("article");
     article.className = "product-card";
+    const visual = document.createElement("div");
+    visual.className = "product-visual";
     const link = document.createElement("a");
     link.href = `product.html?id=${encodeURIComponent(product.id)}`;
     link.className = "product-image";
@@ -18,6 +50,8 @@
     image.alt = product.name;
     image.loading = "lazy";
     link.append(image);
+    visual.append(link);
+    imageControls(visual, image, product);
     const info = document.createElement("div");
     info.className = "product-info";
     const meta = document.createElement("p");
@@ -39,7 +73,7 @@
     button.href = link.href;
     button.textContent = "View product →";
     info.append(meta, title, price, sizes, button);
-    article.append(link, info);
+    article.append(visual, info);
     return article;
   }
 
@@ -92,6 +126,7 @@
     image.src = product.image;
     image.alt = product.name;
     media.append(image);
+    imageControls(media, image, product);
     const content = document.createElement("div");
     content.className = "detail-content";
     const back = document.createElement("a"); back.href = "products.html"; back.className = "back-link"; back.textContent = "← Back to all T-shirts";
